@@ -1,0 +1,45 @@
+#url {
+   font-size: 20px;   
+   width: 780px;
+   position: relative;
+   padding: 15px;
+}
+
+#url > span {
+   border: solid 1px black;
+}
+
+.desc {
+   font-size: 8px;
+   color: red;
+   position: absolute;
+   font-weight: 900;
+}
+
+.desc:first-of-type {
+   top: 0;
+   left: 20px;
+}
+
+.desc:nth-of-type(2) {
+   top: 0;
+   left: 100px;
+}
+
+.desc:nth-of-type(3) {
+   bottom: 0;
+   left: 250px;
+}
+
+.desc:nth-of-type(4) {
+   top: 0;
+   left: 350px;
+}
+
+.desc:last-of-type {
+   top: 0;
+   left: 500px;
+}
+
+
+
