@@ -57,8 +57,8 @@
 						1
 						<input type="checkbox" name="topping" />
 					</div>
-					<div>2</div>
-					<div>3</div>
+					<div>토핑2</div>
+					<div>토핑3</div>
 					<div>4</div>
 					<div>5</div>
 					<div>6</div>
