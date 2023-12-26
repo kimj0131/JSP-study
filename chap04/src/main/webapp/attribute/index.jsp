@@ -62,6 +62,10 @@
 		<input id="pageInput" type="text" value="orange" name="food" />
 		<button id="pageBtn">page에 데이터 추가하기</button> <br />
 
+
+		<div>
+			<a href="/chap04/session/index.jsp">세션 정보 보러가기</a>
+		</div>
         
 		<script>
 			const applicationBtn = document.getElementById("applicationBtn");
