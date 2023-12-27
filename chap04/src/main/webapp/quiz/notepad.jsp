@@ -55,9 +55,9 @@
 			const noteSaveInput = document.getElementById("noteSaveInput");
 			// notepad.focus();
 
-			noteSaveInput.addEventListener("click", (e) => {
-				location.href = "/chap04/quiz/notepadSave.jsp";//?note=" + notepad.value; // + "&scope=application";
-			});
+			//noteSaveInput.addEventListener("click", (e) => {
+			//	location.href = "/chap04/quiz/notepadSave.jsp";
+			//});
 
 		</script>
 	</body>
