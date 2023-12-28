@@ -110,4 +110,16 @@
 		<param-value>1.13.2</param-value>
 	</context-param>
 
+	<!-- 에러 페이지 설정  (코드별, 예외별)-->
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500.jsp</location>
+	</error-page>
+
+	<!-- 예외처리에 따른 에러페이지 매핑이 우선순위가 높은듯? -->
+	<error-page>
+		<exception-type>java.lang.ArithmeticException</exception-type>
+		<location>/error/arithmetic.jsp</location>
+	</error-page>
+
 </web-app>
