@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 public class UriParser {
 	
 	public static String getCmd(HttpServletRequest request) {
-		return request.getRequestURI().substring(request.getContextPath().length());
+		return request.getMethod() + "::" +  request.getRequestURI().substring(request.getContextPath().length());
 	}
 
 }
