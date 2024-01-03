@@ -1,10 +1,9 @@
-package chap07.servlet;
+package chap07.webprocess;
 
 import javax.servlet.http.HttpServletRequest;
 
 import chap07.dao.BreadDao;
 import chap07.dto.BreadDTO;
-import chap07.webprocess.WebProcess;
 
 public class BreadDelWebProcess implements WebProcess {
 	
