@@ -23,7 +23,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
 			if (nmPm.checked) {
 				console.log("체크가 되었습니다");
-				location.href = "nmpm.jsp";
+
+				// 클라이언트 측에서 직접 30초짜리 쿠키 추가
+				document.cookie = "nmpm2=1; max-age=30; path=/chap09/quiz_ans";
+				window.close();
+
+				// 서버측으로 보내서 30초짜리 쿠키 추가
+				// location.href = "nmpm.jsp";
 			}
 		});
 	</script>
