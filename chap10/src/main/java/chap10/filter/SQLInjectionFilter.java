@@ -13,7 +13,7 @@ public class SQLInjectionFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		String name =  request.getParameter("userName");
+		String name = request.getParameter("userName");
 		
 		// 위험한 SQL 문자열이 있는지 검사를 한다... --, ;
 		// if (name.contains())

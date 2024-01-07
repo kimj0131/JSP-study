@@ -1,0 +1,16 @@
+#board-head1 {
+	width: 100px;
+}
+
+#board-head2 {
+	width: 200px;
+}
+
+#board-head3 {
+	width: 700px;
+}
+
+#board-body {
+	width: 1000px;
+	height: 600px;
+}
