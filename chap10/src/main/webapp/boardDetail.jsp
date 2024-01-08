@@ -9,7 +9,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 			#board-warp {
 				box-sizing: border-box;
 				width: 800px;
-				height: 500px;
+				height: auto;
 				/* border: 1px solid black; */
 			}
 
@@ -52,6 +52,10 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 				<div>작성자 : ${boardDetail.write_name}</div>
 			</div>
 			<div id="board-content">${boardDetail.board_content}</div>
+		</div>
+		<hr />
+		<div id="comment-warp">
+			<div id="comment-list"><span>작성자칸</span><span> : </span><span>내용칸</span></div>
 		</div>
 	</body>
 </html>
