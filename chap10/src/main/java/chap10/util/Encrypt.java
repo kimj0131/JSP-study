@@ -3,7 +3,7 @@ package chap10.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class EncryptSHA256 {
+public class Encrypt {
 
     // 입력 문자열을 SHA-256으로 암호화하여 해시 값을 반환하는 메서드
 	public String encrypt(String text) throws NoSuchAlgorithmException {

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chap10.dto.BoardDto;
-import chap10.util.EncryptSHA256;
+import chap10.util.Encrypt;
 
 public class BoardDao {
 
@@ -17,7 +17,7 @@ public class BoardDao {
 	public boolean checkPassward(int idx, String inputPwd) {
 		String sql = "select write_passward as chk_pwd from boards where boards.board_idx = ?";
 
-		EncryptSHA256 encryptSHA256 = new EncryptSHA256();
+		Encrypt encryptSHA256 = new Encrypt();
 
 		try (
 				Connection conn = DBConnector.getConnection(); 

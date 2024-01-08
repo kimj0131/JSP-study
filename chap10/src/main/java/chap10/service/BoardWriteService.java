@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import chap10.dao.BoardDao;
 import chap10.dto.BoardDto;
-import chap10.util.EncryptSHA256;
+import chap10.util.Encrypt;
 
 public class BoardWriteService implements Service {
 	
@@ -14,7 +14,7 @@ public class BoardWriteService implements Service {
 	
 	BoardDao boardDao = new BoardDao();
 	
-	EncryptSHA256 encryptSHA256 = new EncryptSHA256();
+	Encrypt encryptSHA256 = new Encrypt();
 	
 	public static BoardWriteService getInstance() {
 		return instance;
