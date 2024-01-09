@@ -106,5 +106,40 @@ public class BoardDAO {
 		}
 		
 	}
+
+	public int modify(BoardDTO dto) {
+		String sql = "UPDATE myboard SET board_title=?, board_content=? "
+				+ "WHERE board_id=?";
+		
+		try (
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)
+		){
+			pstmt.setString(1, dto.getBoard_title());
+			pstmt.setString(2, dto.getBoard_content());
+			pstmt.setInt(3, dto.getBoard_id());
+			
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
+
+	public int delete(int pk) {
+		String sql = "DELETE FROM myboard WHERE board_id=?";
+		
+		try (
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+		){
+			pstmt.setInt(1, pk);
+			
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
 	
 }

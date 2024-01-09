@@ -15,6 +15,6 @@
 			<textarea name="board_content" id="" cols="30" rows="10"></textarea>
 		</form>
 		<button type="submit" form="writeForm">글쓰기</button>
-		<button>글 목록</button>
+		<button onclick="location.href = './'">글 목록</button>
 	</body>
 </html>
