@@ -25,7 +25,20 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 			<input id="hiddenPassword" type="hidden" name="board_password" />
 		</form>
 
+		<div id="replyWriteDiv">
+			<textarea id="replyContent" name="reply_content" id="" cols="80" rows="5" form="replyForm"></textarea>
+			<br />
+			댓글쓴이<input id="replyWriter" type="text" name="reply_writer" form="replyForm" /> <br />
+			비밀번호<input id="replyPassword" type="password" name="reply_password" form="replyForm" />
+			<button id="replyWriteBtn" form="replyForm">댓글 쓰기</button>
+		</div>
+
+		<form id="replyForm" action="./reply/add" method="post">
+			<input type="hidden" name="board_id" value="${detail.board_id}" />
+		</form>
+
 		<c:url value="/resources/board/js/detail.js" var="detailJS" />
+		<c:url value="/resources/board/js/detailreply.js" var="detailreplyJS" />
 		<c:url value="/resources/board/js/sha256.js" var="sha256JS" />
 		<script>
 			const boardPassword = "${detail.board_password}";
@@ -33,5 +46,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 		</script>
 		<script src="${sha256JS}"></script>
 		<script src="${detailJS}"></script>
+		<script src="${detailreplyJS}"></script>
 	</body>
 </html>
