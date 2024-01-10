@@ -14,7 +14,7 @@ replyContent.addEventListener("keydown", (e) => {
 			if (replyWriter.value === "") {
 				alert("글쓴이가 비어있습니다");
 				return;
-			} else if (replyPassword.value.trim() === "" || replyPassword.value.trim().length < 5) {
+			} else if (replyPassword.value.trim() === "" || replyPassword.value.trim().length < 4) {
 				alert("비밀번호는 4글자 이상이여야 합니다.");
 				return;
 			}

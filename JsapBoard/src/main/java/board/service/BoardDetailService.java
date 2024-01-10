@@ -5,8 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import board.dao.BoardDAO;
+import board.dao.ReplyDAO;
 import board.dto.BoardDTO;
-import oracle.net.aso.f;
 
 public class BoardDetailService implements Service{
 	
@@ -19,7 +19,8 @@ public class BoardDetailService implements Service{
 	private BoardDetailService() {
 	}
 	
-	BoardDAO dao = new BoardDAO();
+	BoardDAO boardDAO = new BoardDAO();
+	ReplyDAO replyDAO = new ReplyDAO();
 	
 	@Override
 	public String service(HttpServletRequest request, HttpServletResponse response) {
@@ -40,7 +41,7 @@ public class BoardDetailService implements Service{
 		
 		// 글 번호와 같은 이름의 쿠키가 조회된적이 없다면 조회수를 증가시키고 쿠키를 등록
 		if (!plused) {
-			int row = dao.plusView(board_id);
+			int row = boardDAO.plusView(board_id);
 			response.addCookie(new Cookie("" + board_id, "1"));
 			
 			if (row < 1) {
@@ -48,10 +49,11 @@ public class BoardDetailService implements Service{
 			}
 		}
 		
-		BoardDTO detail = dao.get(board_id);
+		BoardDTO detail = boardDAO.get(board_id);
 		
 		if (detail != null) {
 			request.setAttribute("detail", detail);
+			request.setAttribute("replies", replyDAO.getBoardReplies(board_id));
 			return "/WEB-INF/views/boards/detail.jsp";
 		} else {
 			return "/WEB-INF/views/boards/detailNotFound.jsp";

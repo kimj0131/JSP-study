@@ -1,9 +1,7 @@
 package board.dao;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +15,8 @@ public class BoardDAO {
 				+ "VALUES(myboard_id_seq.nextval,?,?,?,?)";
 		
 		try (
-			Connection conn = DBConnector.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql);
+			DBSession session = DBConnector.getSession();
+			PreparedStatement pstmt = session.preparedStatement(sql);
 		) {
 			pstmt.setString(1, dto.getBoard_title());
 			pstmt.setString(2, dto.getBoard_content());
@@ -27,7 +25,7 @@ public class BoardDAO {
 			
 			return pstmt.executeUpdate();
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;
 		}
@@ -41,8 +39,8 @@ public class BoardDAO {
 		List<BoardDTO> list = new ArrayList<>();
 		
 		try (
-			Connection conn = DBConnector.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql);
+			DBSession session = DBConnector.getSession();
+			PreparedStatement pstmt = session.preparedStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 		){
 			while (rs.next()) {
@@ -56,7 +54,7 @@ public class BoardDAO {
 				
 				list.add(dto);
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
@@ -69,8 +67,8 @@ public class BoardDAO {
 		BoardDTO detail = new BoardDTO();
 		
 		try (
-			Connection conn = DBConnector.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql);
+			DBSession session = DBConnector.getSession();
+			PreparedStatement pstmt = session.preparedStatement(sql);
 		){
 			pstmt.setInt(1, board_id);
 			
@@ -85,7 +83,7 @@ public class BoardDAO {
 				detail.setBoard_password(rs.getString("board_password"));
 			} 
 			return detail;
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
@@ -95,12 +93,12 @@ public class BoardDAO {
 		String sql = "UPDATE myboard SET view_count = view_count + 1 WHERE board_id = ?";
 		
 		try (
-			Connection conn = DBConnector.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql);
+			DBSession session = DBConnector.getSession();
+			PreparedStatement pstmt = session.preparedStatement(sql);
 		){
 			pstmt.setInt(1, pk);
 			return pstmt.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;
 		}
@@ -112,15 +110,15 @@ public class BoardDAO {
 				+ "WHERE board_id=?";
 		
 		try (
-			Connection conn = DBConnector.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql)
+			DBSession session = DBConnector.getSession();
+			PreparedStatement pstmt = session.preparedStatement(sql)
 		){
 			pstmt.setString(1, dto.getBoard_title());
 			pstmt.setString(2, dto.getBoard_content());
 			pstmt.setInt(3, dto.getBoard_id());
 			
 			return pstmt.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;
 		}
@@ -130,13 +128,13 @@ public class BoardDAO {
 		String sql = "DELETE FROM myboard WHERE board_id=?";
 		
 		try (
-			Connection conn = DBConnector.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql);
+			DBSession session = DBConnector.getSession();
+			PreparedStatement pstmt = session.preparedStatement(sql);
 		){
 			pstmt.setInt(1, pk);
 			
 			return pstmt.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;
 		}

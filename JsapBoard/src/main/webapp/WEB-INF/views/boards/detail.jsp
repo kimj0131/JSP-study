@@ -7,6 +7,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 		<title>${detail.board_title}</title>
 	</head>
 	<body>
+		<button onclick="location.href='./'">목록으로</button>
+
 		<h3>조회 완료</h3>
 
 		글 제목 : <input type="text" value="${detail.board_title}" readonly /> <br />
@@ -24,6 +26,21 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 			<input type="hidden" name="check_password" value="${detail.board_password}" />
 			<input id="hiddenPassword" type="hidden" name="board_password" />
 		</form>
+
+		<hr />
+
+		<c:choose>
+			<c:when test="${replies.size() == 0}">
+				<div>※ 댓글이 아직 없습니다</div>
+			</c:when>
+			<c:when test="${replies.size() > 0}">
+				<c:forEach items="${replies}" var="reply">
+					<div>[${reply.reply_writer}] ${reply.reply_content} <span>${reply.reply_date}</span></div>
+				</c:forEach>
+			</c:when>
+		</c:choose>
+
+		<hr />
 
 		<div id="replyWriteDiv">
 			<textarea id="replyContent" name="reply_content" id="" cols="80" rows="5" form="replyForm"></textarea>

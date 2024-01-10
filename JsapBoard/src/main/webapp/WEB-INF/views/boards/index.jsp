@@ -16,6 +16,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 				<th>Writer</th>
 				<th>Timestamp</th>
 				<th>View</th>
+				<th>Replies</th>
 			</tr>
 			<c:forEach items="${boards}" var="board">
 				<tr>
@@ -24,6 +25,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 					<td>${board.board_writer}</td>
 					<td>${board.write_date}</td>
 					<td>${board.view_count}</td>
+					<td>${replySizes.get(board.board_id)}</td>
 				</tr>
 			</c:forEach>
 		</table>

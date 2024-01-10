@@ -29,6 +29,7 @@ public class ApplicationServlet extends HttpServlet {
 		uriMapping.put("POST:/modify", BoardModifyService.getInstance());
 		uriMapping.put("POST:/delete", BoardDeleteService.getInstance());
 		uriMapping.put("GET:/delete/open", DeletePopupService.getInstance());
+		uriMapping.put("POST:/reply/add", ReplyAddService.getInstance());
 	}
 
 	@Override
