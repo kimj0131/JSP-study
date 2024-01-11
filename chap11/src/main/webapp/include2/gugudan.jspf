@@ -1,0 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	for (int dan = 2; dan <= 9; dan++){
+		out.print("<div>" + dan + "단</div>");
+	}
+%>
+
+<c:forEach begin="10" end="20" var="i">
+	<div>${i}</div>
+</c:forEach>
